@@ -55,7 +55,7 @@ return [
         ],
 
         'mysql' => [
-            'driver'    => 'mysql',
+            'driver'    => 'mysql', 
             'host'      => env('DB_HOST', 'localhost'),
             'database'  => env('DB_DATABASE', 'forge'), // $dbname,
             'username'  => env('DB_USERNAME', 'forge'),
