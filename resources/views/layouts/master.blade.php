@@ -216,6 +216,33 @@
 
 <script src="{{ asset(elixir('js/app.js')) }}"></script>
 
+<!-- Fixes rápidos de layout (faltavam no vendor.css) -->
+<style>
+  /* largura da sidebar e conteúdo */
+  .navmenu{ width:260px; }
+  #page-content-wrapper{ margin-left:260px; }
+
+  /* logo da sidebar */
+  .siderbar-top img{ max-width:160px; height:auto; }
+
+  /* imagens em cards/painéis nunca estouram */
+  .panel img, .card img, .profile img, img.avatar, .avatar-holder img {
+    max-width:100%;
+    height:auto;
+  }
+
+  /* avatar/hero da dashboard fica num tamanho razoável */
+  .dashboard .profile-img,
+  .user-avatar,
+  .avatar, .avatar-holder img {
+    max-width:220px;
+  }
+
+  /* opcional: tira bullets que apareceram no menu */
+  .list-group.panel { list-style:none; padding-left:0; }
+  .list-group.panel > li { list-style:none; }
+</style>
+
 @if(App::getLocale() == "dk")
 <script>
     $(document).ready(function () {
