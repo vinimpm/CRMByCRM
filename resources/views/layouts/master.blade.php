@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>CRMbyCRM</title>
-    <link href="{{ URL::asset('css/jasny-bootstrap.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/dropzone.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/jquery.atwho.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/fonts/flaticon.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/bootstrap-tour-standalone.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/picker.classic.css') }}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jasny-bootstrap@3.1.3/dist/css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.atwho/1.5.4/css/jquery.atwho.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.css">
+
     <link rel="stylesheet" href="https://unpkg.com/vis-timeline@7.3.4/styles/vis-timeline-graph2d.min.css">
     
-    <!-- <link rel="stylesheet" href="{{ asset('css/vendor.css') }}"> -->
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
-    <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{{ asset('images/favicon.png') }}}">
     <script>
         var DayByDay =  {
@@ -209,20 +206,16 @@
 
     <!-- /#page-content-wrapper -->
 </div>
-<script src="/js/manifest.js"></script>
-<!-- <script src="/js/vendor.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/dropzone.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jasny-bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery.caret.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery.atwho.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/summernote.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery-ui-sortable.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/bootstrap-tour-standalone.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/picker.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.atwho/1.5.4/js/jquery.atwho.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jasny-bootstrap@3.1.3/dist/js/jasny-bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+
+<script src="{{ asset(elixir('js/app.js')) }}"></script>
 
 @if(App::getLocale() == "dk")
 <script>
