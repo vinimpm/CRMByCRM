@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daybyday CRM</title>
+    <title>CRMbyCRM</title>
     <link href="{{ URL::asset('css/jasny-bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/dropzone.css') }}" rel="stylesheet" type="text/css">
@@ -11,11 +11,11 @@
     <link href="{{ URL::asset('css/bootstrap-tour-standalone.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/picker.classic.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://unpkg.com/vis-timeline@7.3.4/styles/vis-timeline-graph2d.min.css">
-    <link rel="stylesheet" href="{{ asset(elixir('css/vendor.css')) }}">
-    <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <link rel="stylesheet" href="{{ asset(elixir('css/bootstrap-select.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{{ asset('images/favicon.png') }}}">
     <script>
