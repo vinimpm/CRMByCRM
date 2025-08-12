@@ -24,11 +24,15 @@ RUN composer install --no-dev --prefer-dist --optimize-autoloader
 RUN npm install --legacy-peer-deps || npm install || true \
  && (npm run production || npm run build || npm run dev || true)
 
+RUN apk add --no-cache netcat-openbsd
+
 CMD sh -c '\
-  if [ -z "$APP_KEY" ]; then \
-    php artisan key:generate --show | sed "s/^/base64:/" >/tmp/appkey && \
-    export APP_KEY=$(cat /tmp/appkey); \
-  fi && \
+  for i in $(seq 1 60); do nc -z ${DB_HOST} ${DB_PORT} && break || echo "Aguardando MySQL..."; sleep 2; done; \
+  php artisan config:clear && php artisan cache:clear && php artisan view:clear && php artisan route:clear && \
   php artisan config:cache && \
-  php artisan migrate --force --seed && \
+  if [ "$SEED" = "1" ]; then \
+      php artisan migrate:fresh --force --seed; \
+  else \
+      php artisan migrate --force; \
+  fi && \
   php -S 0.0.0.0:${PORT:-8080} -t public'
