@@ -1,9 +1,9 @@
-# ===== Runtime PHP + Composer + Node (alpine, leve) =====
-FROM php:8.2-cli-alpine
+# Base compatível com o composer.lock do projeto
+FROM php:7.4-cli-alpine
 
-# libs básicas e extensões necessárias
+# Dependências mínimas + extensões do PHP
 RUN apk add --no-cache git unzip nodejs npm \
-  && docker-php-ext-install pdo pdo_mysql
+  && docker-php-ext-install pdo pdo_mysql zip bcmath
 
 # Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -11,13 +11,19 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . /app
 
-# Instalar deps PHP (sem dev) e otimizar autoloader
+# Instalar deps PHP respeitando o lock antigo
+ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
-# Build dos assets (se falhar, não quebra o deploy)
-RUN npm install && npm run build || true
+# Build de assets (se falhar por versão de Node, não impede o deploy)
+RUN npm install --legacy-peer-deps || npm install || true \
+  && (npm run production || npm run build || npm run dev || true)
 
-# Pequeno entrypoint: gera APP_KEY se não existir e aplica migrações
+# Sobe app:
+# - gera APP_KEY se não existir
+# - cache de config
+# - migra e seed
+# - inicia servidor embutido do PHP na porta do Railway
 CMD sh -c '\
   if [ -z "$APP_KEY" ]; then \
     php artisan key:generate --show | sed "s/^/base64:/" >/tmp/appkey && \
