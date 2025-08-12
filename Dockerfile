@@ -27,11 +27,14 @@ RUN npm install --legacy-peer-deps || npm install || true \
 RUN apk add --no-cache netcat-openbsd
 
 CMD sh -c '\
+  # espera DB
   for i in $(seq 1 60); do nc -z ${DB_HOST} ${DB_PORT} && break || echo "Aguardando MySQL..."; sleep 2; done; \
   php artisan config:clear && php artisan cache:clear && php artisan view:clear && php artisan route:clear && \
   php artisan config:cache && \
-  if [ "$SEED" = "1" ]; then \
-      php artisan migrate:fresh --force --seed; \
+  if [ "$SEED" = "1" ] && [ ! -f storage/seed.lock ]; then \
+      echo "Seed inicial..."; \
+      php artisan migrate:fresh --force --seed && \
+      touch storage/seed.lock; \
   else \
       php artisan migrate --force; \
   fi && \
