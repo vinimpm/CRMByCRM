@@ -38,4 +38,4 @@ CMD sh -c '\
   else \
       php artisan migrate --force; \
   fi && \
-  php -S 0.0.0.0:${PORT:-8080} -t public'
+  php -S 0.0.0.0:${PORT:-8080} -t public server.php'
