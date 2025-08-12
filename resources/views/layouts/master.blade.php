@@ -11,10 +11,14 @@
     <link href="{{ URL::asset('css/bootstrap-tour-standalone.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/picker.classic.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://unpkg.com/vis-timeline@7.3.4/styles/vis-timeline-graph2d.min.css">
-    <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
+    
+    <!-- <link rel="stylesheet" href="{{ asset('css/vendor.css') }}"> -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    
     <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
     <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{{ asset('images/favicon.png') }}}">
@@ -206,7 +210,9 @@
     <!-- /#page-content-wrapper -->
 </div>
 <script src="/js/manifest.js"></script>
-<script src="/js/vendor.js"></script>
+<!-- <script src="/js/vendor.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/dropzone.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
